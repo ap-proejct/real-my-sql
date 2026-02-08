@@ -1,0 +1,5 @@
+
+# Ignore large SQL files
+example/*.sql
+*.sock
+mysql-data/

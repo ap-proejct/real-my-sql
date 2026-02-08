@@ -1,0 +1,15 @@
+services:
+  my-real-sql:
+    image: mysql:8.4.8
+    container_name: real-mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - ./01-create-database.sql:/docker-entrypoint-initdb.d/01-create-database.sql
+      - ./employees-with-use.sql:/docker-entrypoint-initdb.d/02-employees.sql
+      - ./mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
